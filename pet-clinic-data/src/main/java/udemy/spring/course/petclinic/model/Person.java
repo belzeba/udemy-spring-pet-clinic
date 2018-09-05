@@ -3,7 +3,7 @@ package udemy.spring.course.petclinic.model;
 /**
  * Created by Ari Marin on 05.09.2018
  */
-public class Person {
+public class Person extends BaseEntity {
 
     private String firstName;
     private String lastName;
