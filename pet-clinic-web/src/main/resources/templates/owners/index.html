@@ -17,6 +17,7 @@
     </tr>
     </thead>
     <tbody>
+    <!-- owner? is kind of a null check. If object is empty/null, empty column is shown -->
     <tr th:each="owner : ${owners}">
         <td th:text="${owner?.id}">1</td>
         <td th:text="${owner?.firstName}">Joe</td>
