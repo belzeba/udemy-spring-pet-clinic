@@ -1,14 +1,14 @@
 package udemy.spring.course.petclinic.services.map;
 
 import udemy.spring.course.petclinic.model.Owner;
-import udemy.spring.course.petclinic.services.CrudService;
+import udemy.spring.course.petclinic.services.OwnerService;
 
 import java.util.Set;
 
 /**
  * Created by Ari on 06.09.2018
  */
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -33,5 +33,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public void delete(Owner object) {
         super.delete(object);
+    }
+
+    @Override
+    public Owner findByLasName(String lastName) {
+        return null;
     }
 }
