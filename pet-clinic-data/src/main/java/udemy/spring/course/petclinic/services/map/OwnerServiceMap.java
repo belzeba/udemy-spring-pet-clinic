@@ -1,5 +1,6 @@
 package udemy.spring.course.petclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import udemy.spring.course.petclinic.model.Owner;
 import udemy.spring.course.petclinic.services.OwnerService;
 
@@ -8,6 +9,7 @@ import java.util.Set;
 /**
  * Created by Ari on 06.09.2018
  */
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override

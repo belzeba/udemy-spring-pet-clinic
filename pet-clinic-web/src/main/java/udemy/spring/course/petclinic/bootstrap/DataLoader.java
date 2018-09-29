@@ -1,13 +1,12 @@
 package udemy.spring.course.petclinic.bootstrap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import udemy.spring.course.petclinic.model.Owner;
 import udemy.spring.course.petclinic.model.Vet;
 import udemy.spring.course.petclinic.services.OwnerService;
 import udemy.spring.course.petclinic.services.VetService;
-import udemy.spring.course.petclinic.services.map.OwnerServiceMap;
-import udemy.spring.course.petclinic.services.map.VetServiceMap;
 
 /**
  * Created by Ari on 29.09.2018
@@ -18,9 +17,10 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    @Autowired // This annotation is not necessary, but it doesn't hurt either
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override

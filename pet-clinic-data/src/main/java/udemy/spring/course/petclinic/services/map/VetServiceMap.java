@@ -1,5 +1,6 @@
 package udemy.spring.course.petclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import udemy.spring.course.petclinic.model.Vet;
 import udemy.spring.course.petclinic.services.VetService;
 
@@ -8,6 +9,7 @@ import java.util.Set;
 /**
  * Created by Ari on 06.09.2018
  */
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
