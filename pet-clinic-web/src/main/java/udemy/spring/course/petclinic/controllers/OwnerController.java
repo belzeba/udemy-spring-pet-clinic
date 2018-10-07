@@ -9,7 +9,7 @@ import udemy.spring.course.petclinic.services.OwnerService;
 /**
  * Created by Ari on 06.09.2018
  */
-@RequestMapping("/owners")
+@RequestMapping({"/owners", "/owners.html"})
 @Controller
 public class OwnerController {
 
@@ -26,5 +26,11 @@ public class OwnerController {
         model.addAttribute("owners", ownerService.findAll());
 
         return "owners/index";
+    }
+
+    @RequestMapping("/find")
+    public String findOwners(Model model) {
+        model.addAttribute("siteType", "owners");
+        return "notimplemented";
     }
 }

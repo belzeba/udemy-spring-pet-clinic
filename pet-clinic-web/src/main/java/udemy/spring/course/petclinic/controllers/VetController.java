@@ -9,7 +9,7 @@ import udemy.spring.course.petclinic.services.VetService;
 /**
  * Created by Ari on 06.09.2018
  */
-@RequestMapping("/vets")
+@RequestMapping({"/vets", "/vets.html"})
 @Controller
 public class VetController {
 
