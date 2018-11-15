@@ -1,22 +1,35 @@
 package udemy.spring.course.petclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 /**
  * Created by Ari on 07.10.2018
  */
+@Entity
+@Table(name = "visits")
 public class Visit extends BaseEntity {
 
-    private LocalDate dte;
+    @Column(name = "date")
+    private LocalDate date;
+
+    @Column(name = "description")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
-    public LocalDate getDte() {
-        return dte;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDte(LocalDate dte) {
-        this.dte = dte;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public String getDescription() {
