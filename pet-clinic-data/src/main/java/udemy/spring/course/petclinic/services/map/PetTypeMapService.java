@@ -1,5 +1,6 @@
 package udemy.spring.course.petclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import udemy.spring.course.petclinic.model.PetType;
 import udemy.spring.course.petclinic.services.PetTypeService;
@@ -10,6 +11,7 @@ import java.util.Set;
  * Created by Ari on 07.10.2018
  */
 @Service
+@Profile({"default", "map"})
 public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
 
     @Override

@@ -1,5 +1,6 @@
 package udemy.spring.course.petclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import udemy.spring.course.petclinic.model.Specialty;
 import udemy.spring.course.petclinic.model.Vet;
@@ -12,6 +13,7 @@ import java.util.Set;
  * Created by Ari on 06.09.2018
  */
 @Service
+@Profile({"default", "map"})
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
     private final SpecialtyService specialtyService;
