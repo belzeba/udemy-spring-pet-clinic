@@ -24,6 +24,22 @@ public class Visit extends BaseEntity {
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
+    public Visit() {
+    }
+
+    public Visit(LocalDate date, String description, Pet pet) {
+        this.date = date;
+        this.description = description;
+        this.pet = pet;
+    }
+
+    public Visit(Long id, LocalDate date, String description, Pet pet) {
+        super(id);
+        this.date = date;
+        this.description = description;
+        this.pet = pet;
+    }
+
     public LocalDate getDate() {
         return date;
     }
@@ -46,5 +62,41 @@ public class Visit extends BaseEntity {
 
     public void setPet(Pet pet) {
         this.pet = pet;
+    }
+
+    public static VisitBuilder builder() {
+        return new VisitBuilder();
+    }
+
+    public static class VisitBuilder {
+        private LocalDate date;
+        private String description;
+        private Pet pet;
+
+        VisitBuilder() {
+        }
+
+        public VisitBuilder date(LocalDate date) {
+            this.date = date;
+            return this;
+        }
+
+        public VisitBuilder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public VisitBuilder pet(Pet pet) {
+            this.pet = pet;
+            return this;
+        }
+
+        public Visit build() {
+            return new Visit(date, description, pet);
+        }
+
+        public String toString() {
+            return "Visit.VisitBuilder(date=" + this.date + ", description=" + this.description + ", pet=" + this.pet + ")";
+        }
     }
 }

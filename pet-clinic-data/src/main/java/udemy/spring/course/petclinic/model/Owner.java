@@ -27,6 +27,24 @@ public class Owner extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
+    public Owner() {
+    }
+
+    public Owner(String address, String city, String telephone, Set<Pet> pets) {
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
+        this.pets = pets;
+    }
+
+    public Owner(Long id, String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
+        super(id, firstName, lastName);
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
+        this.pets = pets;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -57,5 +75,65 @@ public class Owner extends Person {
 
     public void setPets(Set<Pet> pets) {
         this.pets = pets;
+    }
+
+    public static OwnerBuilder builder() {
+        return new OwnerBuilder();
+    }
+
+    public static class OwnerBuilder {
+        private Long id;
+        private String firstName;
+        private String lastName;
+        private String address;
+        private String city;
+        private String telephone;
+        private Set<Pet> pets;
+
+        OwnerBuilder() {
+        }
+
+        public OwnerBuilder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public OwnerBuilder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public OwnerBuilder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public OwnerBuilder address(String address) {
+            this.address = address;
+            return this;
+        }
+
+        public OwnerBuilder city(String city) {
+            this.city = city;
+            return this;
+        }
+
+        public OwnerBuilder telephone(String telephone) {
+            this.telephone = telephone;
+            return this;
+        }
+
+        public OwnerBuilder pets(Set<Pet> pets) {
+            this.pets = pets;
+            return this;
+        }
+
+        public Owner build() {
+            return new Owner(id, firstName, lastName, address, city, telephone, pets);
+        }
+
+        public String toString() {
+            return "Owner.OwnerBuilder(id=" + this.id + ", firstName=" + this.firstName + ", lastName=" + this.lastName + ", address=" + this.address + ", city=" + this.city + ", telephone=" + this.telephone + ", pets=" + this.pets + ")";
+        }
     }
 }
